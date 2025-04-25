@@ -1,11 +1,12 @@
 #!/bin/bash
+# Ativa o ambiente virtual (caso esteja usando um)
+# source .venv/bin/activate  # Descomente se necessário
 
-# Instala as dependências se necessário
+# Instala as dependências
 pip install -r requirements.txt
 
-# Desativa o CORS e o XSRF Protection para evitar erros no deploy
-echo "\
-[server]
-enableCORS = false
-enableXsrfProtection = false
-" > ~/.streamlit/config.toml
+# Garante permissões de execução
+chmod +x setup.sh
+
+# Executa o Streamlit apontando para o seu app
+streamlit run app_7.py
